@@ -88,7 +88,7 @@ http://localhost:5000
 
 ### Docker Containers 
 
-![Docker Conatiners](screenshots/conatiner-png.png)
+![Docker Conatiners](screenshots/container-png.png)
 
 ---
 
