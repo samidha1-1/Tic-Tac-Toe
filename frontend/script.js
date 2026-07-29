@@ -1,121 +1,114 @@
-let board=[
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-""
+let board = [
+    "", "", "",
+    "", "", "",
+    "", "", ""
 ];
 
+let player = "X";
+let gameOver = false;
 
-let player="X";
+const boardDiv = document.getElementById("board");
+const result = document.getElementById("result");
+const turn = document.getElementById("turn");
 
+function draw() {
 
-const boardDiv=document.getElementById("board");
+    boardDiv.innerHTML = "";
 
+    board.forEach((value, index) => {
 
-function draw(){
+        let cell = document.createElement("button");
 
-boardDiv.innerHTML="";
+        cell.className = "cell";
 
+        cell.innerHTML = value;
 
-board.forEach((value,index)=>{
+        cell.onclick = function () {
 
-let cell=document.createElement("button");
+            // Stop if game is over or cell is already filled
+            if (gameOver || board[index] !== "") {
+                return;
+            }
 
-cell.className="cell";
+            board[index] = player;
 
-cell.innerHTML=value;
+            draw();
 
+            checkWinner();
 
-cell.onclick=function(){
+            if (!gameOver) {
+                player = player === "X" ? "O" : "X";
+                turn.innerHTML = `Player ${player}'s Turn`;
+            }
 
-if(board[index]==""){
+        };
 
-board[index]=player;
+        boardDiv.appendChild(cell);
 
-player=player==="X"?"O":"X";
-
-draw();
-
-check();
-
-}
-
-};
-
-
-boardDiv.appendChild(cell);
-
-
-});
-
-
-}
-
-
-
-function check(){
-
-fetch("http://localhost:5000/move",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-board:board
-
-})
-
-})
-
-
-.then(response=>response.json())
-
-.then(data=>{
-
-
-if(data.winner){
-
-document.getElementById("result").innerHTML=
-"Winner: "+data.winner;
+    });
 
 }
 
-});
+function checkWinner() {
 
+    fetch("http://localhost:5000/move", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            board: board
+        })
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if (data.winner) {
+
+            gameOver = true;
+
+            if (data.winner === "Draw") {
+
+                result.innerHTML = "🤝 It's a Draw!";
+
+            } else {
+
+                result.innerHTML = `🏆 Winner: ${data.winner}`;
+
+            }
+
+            turn.innerHTML = "Game Over";
+
+        }
+
+    });
 
 }
 
+function restart() {
 
+    board = [
+        "", "", "",
+        "", "", "",
+        "", "", ""
+    ];
 
-function restart(){
+    player = "X";
 
-board=[
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-""
-];
+    gameOver = false;
 
-document.getElementById("result").innerHTML="";
+    result.innerHTML = "";
 
-draw();
+    turn.innerHTML = "Player X's Turn";
+
+    draw();
 
 }
-
-
 
 draw();

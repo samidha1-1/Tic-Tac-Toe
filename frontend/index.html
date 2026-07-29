@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
-<title>Tic Tac Toe</title>
-<link rel="stylesheet" href="style.css">
-</head>
 
+    <title>Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
 
 <body>
 
-<h1>Tic Tac Toe</h1>
+<div class="container">
 
-<div id="board"></div>
+    <h1>🎮 Tic Tac Toe</h1>
 
-<h2 id="result"></h2>
+    <div class="turn" id="turn">
+        Player X Turn
+    </div>
 
-<button onclick="restart()">Restart</button>
+    <div id="board"></div>
 
+    <h2 id="result"></h2>
+
+    <button onclick="restart()">
+        Restart Game
+    </button>
+
+</div>
 
 <script src="script.js"></script>
 
