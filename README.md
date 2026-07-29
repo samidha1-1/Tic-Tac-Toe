@@ -80,7 +80,7 @@ http://localhost:5000
 
 ### Home Screen
 
-![Home](screenshots/tic-tac-toe-home-page)
+![screenshots/tic-tac-toe-home-page.png](screenshots/tic-tac-toe-home-page)
 
 ### Docker Images 
 
