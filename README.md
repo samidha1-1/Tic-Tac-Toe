@@ -108,11 +108,3 @@ http://localhost:5000
 
 GitHub: https://github.com/samidha1-1)
 
-
----
-
-##  Author
-
-**Samidha Wani**
-
-GitHub: https://github.com/samidha1-1
