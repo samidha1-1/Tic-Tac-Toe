@@ -84,11 +84,11 @@ http://localhost:5000
 
 ### Docker Images 
 
-![Docker Images](screenshots/docker-images)
+![Docker Images](screenshots/docker-images.png)
 
 ### Docker Containers 
 
-![Docker Conatiners](screenshots/conatiner-png)
+![Docker Conatiners](screenshots/conatiner-png.png)
 
 ---
 
