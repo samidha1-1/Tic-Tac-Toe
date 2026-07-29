@@ -75,11 +75,11 @@ function checkWinner() {
 
             if (data.winner === "Draw") {
 
-                result.innerHTML = "🤝 It's a Draw!";
+                result.innerHTML = "?? It's a Draw!";
 
             } else {
 
-                result.innerHTML = `🏆 Winner: ${data.winner}`;
+                result.innerHTML = `?? Winner: ${data.winner}`;
 
             }
 
