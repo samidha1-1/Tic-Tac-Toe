@@ -1,38 +1,56 @@
 pipeline {
-
-    agent any 
+    agent any
 
     environment {
-        IMAGE_NAME = "tic-tac-toe"
-        CONTAINER_NAME = "game-container"
+        FRONTEND_IMAGE = "student-frontend"
+        BACKEND_IMAGE = "student-backend"
     }
 
     stages {
 
-        stage('Build Docker Image') {
+        stage('Build Backend Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                dir('backend') {
+                    sh 'docker build -t $BACKEND_IMAGE .'
+                }
             }
         }
 
-        stage('Stop Old Container') {
+        stage('Build Frontend Image') {
             steps {
-                sh '''
-                docker stop $CONTAINER_NAME || true
-                docker rm $CONTAINER_NAME || true
-                '''
+                dir('frontend') {
+                    sh 'docker build -t $FRONTEND_IMAGE .'
+                }
             }
         }
 
-        stage('Run New Container') {
+        stage('Run Backend') {
             steps {
                 sh '''
+                docker stop backend-container || true
+                docker rm backend-container || true
+
                 docker run -d \
-                -p 8080:80 \
-                --name $CONTAINER_NAME \
-                $IMAGE_NAME
+                  --name backend-container \
+                  -p 5000:5000 \
+                  $BACKEND_IMAGE
                 '''
             }
         }
+
+        stage('Run Frontend') {
+            steps {
+                sh '''
+                docker stop frontend-container || true
+                docker rm frontend-container || true
+
+                docker run -d \
+                  --name frontend-container \
+                  -p 8080:80 \
+                  $FRONTEND_IMAGE
+                '''
+            }
+        }
+
     }
 }
