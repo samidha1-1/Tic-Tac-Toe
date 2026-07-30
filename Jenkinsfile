@@ -9,12 +9,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git  'https://github.com/samidha1-1/Tic-Tac-Toe.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $IMAGE_NAME .'
