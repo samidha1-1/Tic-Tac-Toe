@@ -1,11 +1,6 @@
 pipeline {
 
-    agent {
-        dockerContainer {
-            image 'docker:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any 
 
     environment {
         IMAGE_NAME = "tic-tac-toe"
