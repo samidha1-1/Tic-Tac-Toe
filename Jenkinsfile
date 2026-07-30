@@ -10,7 +10,6 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main',
                 git  'https://github.com/samidha1-1/Tic-Tac-Toe.git'
             }
         }
