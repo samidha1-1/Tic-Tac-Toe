@@ -122,7 +122,7 @@ tic-tac-toe/
 
 ## Docker Containers
 
-![Docker Container](screenshots/containers-running.png)
+![Docker Container](screenshots/container-running.png)
 
 --- 
 ## Images 
