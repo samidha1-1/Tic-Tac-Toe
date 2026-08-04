@@ -8,18 +8,18 @@ pipeline {
 
     stages {
 
-        stage('Build Backend Image') {
-            steps {
-                dir('backend') {
-                    sh 'docker build -t $BACKEND_IMAGE .'
-                }
-            }
-        }
-
         stage('Build Frontend Image') {
             steps {
                 dir('frontend') {
                     sh 'docker build -t $FRONTEND_IMAGE .'
+                }
+            }
+        }
+
+        stage('Build Backend Image') {
+            steps {
+                dir('backend') {
+                    sh 'docker build -t $BACKEND_IMAGE .'
                 }
             }
         }
