@@ -46,7 +46,7 @@ pipeline {
 
                 docker run -d \
                   --name frontend-container \
-                  -p 8080:80 \
+                  -p 8081:80 \
                   $FRONTEND_IMAGE
                 '''
             }
