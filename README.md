@@ -108,21 +108,26 @@ tic-tac-toe/
 
 # 📸 Screenshots
 
-## Application
+## Home Screen 
 
-_Add Screenshot Here_
+![Home](screenshots/game-homepage.png)
 
 ---
 
 ## Jenkins Pipeline
 
-_Add Screenshot Here_
+![Jenkins Pipeline](screenshots/jenkins-pipeline.png)
 
 ---
 
-## Docker Hub Repository
+## Docker Containers
 
-_Add Screenshot Here_
+![Docker Container](screenshots/containers-running.png)
+
+--- 
+## Images 
+
+![Docker Images](screenshots/game-images.png)
 
 ---
 
@@ -132,9 +137,7 @@ _Add Screenshot Here_
 docker ps
 ```
 
-_Add Screenshot Here_
-
----
+--- 
 
 # ⚙️ Deployment Steps
 
