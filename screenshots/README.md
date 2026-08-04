@@ -80,7 +80,7 @@ http://localhost:5000
 
 ### Home Screen
 
-![Home](screenshots/#  Tic Tac Toe - Dockerized Web Application
+![Home](screenshots/game-homepage.png)
 
 A simple Tic Tac Toe web application built using **HTML, CSS, JavaScript, and Python Flask**, containerized with **Docker** and managed using **Docker Compose**.
 
@@ -90,15 +90,19 @@ A simple Tic Tac Toe web application built using **HTML, CSS, JavaScript, and Py
 
 ### Home Screen
 
-![Home](screenshots/tic-tac-toe-home-page)
+![Home](screenshots/game-homepage.png)
 
 ### Docker Images 
 
-![Docker Images](screenshots/docker-images)
+![Docker Images](screenshots/game-images.png)
 
 ### Docker Containers 
 
-![Docker Conatiners](screenshots/conatiner-png)
+![Docker Conatiners](screenshots/container-running.png)
+
+### Jenkins pipeline
+
+![Docker Conatiners](screenshots/jenkins-pipeline.png)
 
 ---
 
