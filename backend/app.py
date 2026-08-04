@@ -7,7 +7,7 @@ CORS(app)
 
 @app.route("/")
 def home():
-    return "Tic Tac Toe Backend Running from aws ec2"
+    return "Tic Tac Toe Backend Running"
 
 
 @app.route("/move", methods=["POST"])
