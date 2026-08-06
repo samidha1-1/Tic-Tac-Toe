@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend-container
-        image: samidha7/tic-tac-toe-frontend:1
+        image: samidha7/tic-tac-toe-frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
