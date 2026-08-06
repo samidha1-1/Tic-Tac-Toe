@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: samidha7/tic-tac-toe-backend:1
+        image: samidha7/tic-tac-toe-backend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
