@@ -1,17 +1,21 @@
+
 pipeline {
     agent any
 
-    environment {
-        FRONTEND_IMAGE = "student-frontend"
-        BACKEND_IMAGE = "student-backend"
-    }
-
     stages {
+
+        stage('Checkout Latest Code') {
+            steps {
+                deleteDir()
+                checkout scm
+                sh 'git rev-parse HEAD'
+            }
+        }
 
         stage('Build Frontend Image') {
             steps {
                 dir('frontend') {
-                    sh 'docker build -t $FRONTEND_IMAGE .'
+                    sh 'docker build --no-cache -t student-frontend .'
                 }
             }
         }
@@ -19,7 +23,7 @@ pipeline {
         stage('Build Backend Image') {
             steps {
                 dir('backend') {
-                    sh 'docker build -t $BACKEND_IMAGE .'
+                    sh 'docker build --no-cache -t student-backend .'
                 }
             }
         }
@@ -30,10 +34,7 @@ pipeline {
                 docker stop backend-container || true
                 docker rm backend-container || true
 
-                docker run -d \
-                  --name backend-container \
-                  -p 5000:5000 \
-                  $BACKEND_IMAGE
+                docker run -d --name backend-container -p 5000:5000 student-backend
                 '''
             }
         }
@@ -44,13 +45,9 @@ pipeline {
                 docker stop frontend-container || true
                 docker rm frontend-container || true
 
-                docker run -d \
-                  --name frontend-container \
-                  -p 8080:80 \
-                  $FRONTEND_IMAGE
+                docker run -d --name frontend-container -p 8081:80 student-frontend
                 '''
             }
         }
-
     }
 }

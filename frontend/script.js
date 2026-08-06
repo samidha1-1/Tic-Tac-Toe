@@ -51,7 +51,7 @@ function draw() {
 
 function checkWinner() {
 
-    fetch("http://13.232.44.187:5000/move", {
+    fetch("http://localhost:5000/move", {
 
         method: "POST",
 
