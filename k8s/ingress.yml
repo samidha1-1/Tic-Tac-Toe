@@ -4,21 +4,20 @@ metadata:
   name: tic-tac-toe-ingress
 spec:
   rules:
-  - host: "samidhawani.in"
+  - host: samidhawani.in
     http:
       paths:
       - pathType: Prefix
-        path: "/app"
+        path: /
         backend:
           service:
             name: frontend-service
             port:
               number: 8081
-  - host: "samidhawani.in"
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/backend"
+    
+      - paths:
+        pathType: Prefix
+        path: /api
         backend:
           service:
             name: backend-service
